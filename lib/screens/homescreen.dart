@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: BlocBuilder<NewsApiBloc, NewsApiState>(
             builder: (context, state) {
               if (state is NewsApiLoading) {
+                print("Getting News.....");
                 return Center(
                   child: CircularProgressIndicator(
                     color:themeProvider.isDarkMode ? DarkPrimaryColor : LightPrimaryColor,
