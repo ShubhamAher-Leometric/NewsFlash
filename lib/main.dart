@@ -2,7 +2,6 @@ import 'package:flashnews/constatnts/constants.dart';
 import 'package:flashnews/screens/helper/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flashnews/screens/homescreen.dart';
 import 'package:flashnews/screens/settingsscreen.dart';
 
 import 'constatnts/checkconectivity.dart';
@@ -25,14 +24,14 @@ class MyApp extends StatelessWidget {
       builder: (context, themeProvider, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'FlashNews',
+          title: 'NewsFlash',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
           darkTheme: ThemeData.dark(),
           themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-          home: const MyHomePage(title: 'FlashNews'),
+          home: const MyHomePage(title: 'NewsFlash'),
         );
       },
     );
@@ -53,10 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   static List<Widget> _widgetOptions = <Widget>[
     ConnectivityCheck(),
-    Text(
-      'Profile Page',
-      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-    ),
+
     SettingScreen(),
   ];
 
@@ -84,10 +80,10 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.search),
+          //   label: 'Search',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Setting',

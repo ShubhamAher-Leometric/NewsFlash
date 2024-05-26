@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class ThemeProvider extends ChangeNotifier {
+class ThemeProvider with ChangeNotifier {
   bool _isDarkMode = false;
+  String _language = 'en'; // Default language
 
   bool get isDarkMode => _isDarkMode;
+  String get language => _language;
 
-  ThemeProvider() {
-    _loadTheme();
-  }
-
-  void _loadTheme() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    _isDarkMode = prefs.getBool('isDarkMode') ?? false;
+  void toggleTheme(bool isDark) {
+    _isDarkMode = isDark;
     notifyListeners();
   }
 
-  void toggleTheme(bool isDarkMode) async {
-    _isDarkMode = isDarkMode;
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('isDarkMode', _isDarkMode);
+  void setLanguage(String language) {
+    _language = language;
     notifyListeners();
   }
 }

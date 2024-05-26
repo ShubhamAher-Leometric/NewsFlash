@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../constatnts/constants.dart';
 import 'helper/theme_provider.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -47,9 +48,11 @@ class _SettingScreenState extends State<SettingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Settings'),
+        backgroundColor: themeProvider.isDarkMode ? DarkPrimaryColor : LightPrimaryColor,
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -92,6 +95,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 _showLanguageDialog(context);
               },
             ),
+            Divider(),
           ],
         ),
       ),

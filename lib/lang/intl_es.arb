@@ -1,0 +1,10 @@
+{
+  "@@locale": "es",
+  "settings": "Configuración",
+  "useDarkTheme": "Usar tema oscuro",
+  "language": "Idioma",
+  "selectLanguage": "Seleccionar idioma",
+  "english": "Inglés",
+  "spanish": "Español"
+}
+

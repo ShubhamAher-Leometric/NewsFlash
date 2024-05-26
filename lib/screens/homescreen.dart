@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               if (state is NewsApiLoading) {
                 return Center(
                   child: CircularProgressIndicator(
-                    color: Color(0xffef5252),
+                    color:themeProvider.isDarkMode ? DarkPrimaryColor : LightPrimaryColor,
                   ),
                 );
               }
@@ -138,16 +138,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     }
                 );
               }
-
               if(state is NewsApiError){
                 return Center(
-                  child: Text("Network Error"),
+                  child: Text("Request time Out"),
                 );
               }
               return Center(
-                // child: CircularProgressIndicator(
-                //   color: Color(0xffef5252),
-                // ),
+                child: CircularProgressIndicator(
+                  color: themeProvider.isDarkMode ? DarkPrimaryColor : LightPrimaryColor,
+                ),
               );
             },
           ),
